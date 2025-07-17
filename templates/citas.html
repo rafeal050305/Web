@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Citas{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 700px;">
+    <h2 class="text-center">Gestión de Citas</h2>
+    <div class="cards-grid" style="margin-top: 2.5rem;">
+      <a href="{{ url_for('crear_cita') }}" class="card" style="text-align: center; cursor: pointer; transition: box-shadow 0.3s;">
+        <i class="fas fa-calendar-plus" style="font-size: 2.8rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+        <h3 style="margin-bottom: 0.5rem;">Agendar nueva cita</h3>
+        <p style="color: var(--text-gray);">Reserva tu próxima cita médica fácilmente.</p>
+      </a>
+      <a href="{{ url_for('historial_citas') }}" class="card" style="text-align: center; cursor: pointer; transition: box-shadow 0.3s;">
+        <i class="fas fa-history" style="font-size: 2.8rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+        <h3 style="margin-bottom: 0.5rem;">Historial de citas</h3>
+        <p style="color: var(--text-gray);">Consulta todas tus citas anteriores.</p>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

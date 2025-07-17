@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Programa de Exámenes de Laboratorio Clínico{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 800px;">
+    <div class="card" style="padding: 0; overflow: hidden;">
+      <img src="{{ url_for('static', filename='images/noticia1.jpg') }}" alt="Programa de Exámenes de Laboratorio Clínico" style="width: 100%; max-height: 340px; object-fit: cover;">
+      <div style="padding: 2.5rem 2rem;">
+        <h1 style="font-size: 2.2rem; color: var(--primary-green); margin-bottom: 0.5rem;">Programa de Exámenes de Laboratorio Clínico</h1>
+        <div style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 1.2rem;">
+          <span>1 Agosto 2025</span> &nbsp;|&nbsp; <span>Dr. Mauricio Velazco</span>
+        </div>
+        <div style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark);">
+          <p><strong>¡ATENCIÓN!</strong> Su salud es su mayor prioridad, y por ello, no debe dejar para mañana el bienestar que puede asegurar hoy. Le extendemos una cordial invitación a inscribirse en nuestro exclusivo programa-servicio de exámenes de laboratorio clínico que se llevará a cabo el sábado 23 de agosto de 2025.</p>
+          <p>Este programa está diseñado para ofrecerle una visión clara y completa de su estado de salud actual. Participar es dar un paso proactivo que le permitirá detectar a tiempo posibles anomalías y tomar el control de su bienestar a largo plazo, porque la prevención es la mejor inversión en su calidad de vida.</p>
+          <p>Para garantizar una atención personalizada y de calidad, las plazas son limitadas. Puede asegurar su cupo de la manera que más le convenga: ya sea completando nuestro sencillo formulario de registro virtual para separar su vacante, o si lo prefiere, acercándose directamente a nuestra oficina ubicada en Jr. Río Chepén, El Agustino, donde nuestro equipo lo atenderá gustosamente.</p>
+          <p>Una de las grandes ventajas de nuestro servicio es el acceso innovador a su información. Una vez creado su perfil en nuestro portal, podrá visualizar sus resultados de forma didáctica, con gráficos claros e indicadores visuales que le ayudarán a comprender fácilmente cada aspecto de su analítica. Además, tendrá la facilidad de descargar un informe completo en formato PDF, listo para ser almacenado o compartido con su médico de confianza.</p>
+          <p><strong>No espere más.</strong> Tome la decisión inteligente por su salud. Inscríbase hoy y dé el primer paso hacia un futuro más sano y consciente.</p>
+        </div>
+        <div style="margin-top: 2.5rem; text-align:center;">
+          <a href="{{ url_for('home') }}" class="btn btn-secondary btn-small"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 

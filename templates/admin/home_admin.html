@@ -1,0 +1,28 @@
+{% extends 'admin/base_admin.html' %}
+{% block title %}Panel Admin - Home{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 700px;">
+    <div class="card text-center" style="margin-bottom: 2.5rem;">
+      <div class="logo" style="margin-bottom: 1.5rem;">
+        <i class="fas fa-user-shield" style="font-size: 3rem; color: var(--primary-green);"></i>
+      </div>
+      <h2 style="margin-bottom: 1rem;">Bienvenido al panel de administración</h2>
+      <p style="color: var(--text-gray);">Desde aquí puedes gestionar las citas y resultados de todos los usuarios.</p>
+    </div>
+    <div class="cards-grid">
+      <a href="{{ url_for('citas_general') }}" class="card" style="text-align: center; cursor: pointer;">
+        <i class="fas fa-calendar-alt" style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+        <h3>Citas</h3>
+        <p style="color: var(--text-gray);">Gestiona y visualiza todas las citas de los usuarios.</p>
+      </a>
+      <a href="{{ url_for('admin_resultados') }}" class="card" style="text-align: center; cursor: pointer;">
+        <i class="fas fa-file-medical" style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+        <h3>Resultados</h3>
+        <p style="color: var(--text-gray);">Consulta y administra los resultados médicos.</p>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

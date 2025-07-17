@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Bienvenido | UNFV{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="container" style="text-align:center; max-width: 500px; margin: 0 auto;">
+    <img src="{{ url_for('static', filename='images/portada.jpg') }}" alt="Portada Facultad" style="max-width: 100%; height: auto; border-radius: 18px; margin-bottom: 2rem; box-shadow: 0 4px 24px rgba(0,0,0,0.12);">
+    <h1>Bienvenido al sistema de resultados y citas médicas de la UNFV</h1>
+    <p>Accede a tu cuenta o regístrate para comenzar a gestionar tus citas y resultados médicos.</p>
+    <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+      <a href="{{ url_for('login') }}" class="btn btn-success">Iniciar sesión</a>
+      <a href="{{ url_for('register') }}" class="btn btn-secondary">Registrarse</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Forzar ocultar links de usuario autenticado en el navbar
+// (Esto depende de la lógica del template base, pero aquí forzamos user a None)
+</script>
+{% endblock %} 

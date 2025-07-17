@@ -1,0 +1,58 @@
+{% extends 'admin/base_admin.html' %}
+{% block title %}Listado General de Citas{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 1000px;">
+    <h2 class="text-center">Listado General de Citas por Usuario</h2>
+    <div class="search-bar" style="margin-bottom: 2rem;">
+      <input type="text" id="busqueda" placeholder="Buscar en la tabla..."  />
+    </div>
+    <div class="table-container">
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cita in citas %}
+          <tr>
+            <td>{{ cita['nombres'] }}</td>
+            <td>{{ cita['apellidos'] }}</td>
+            <td>{{ cita['dni'] }}</td>
+            <td>{{ cita['correo'] }}</td>
+            <td>{{ cita['telefono'] }}</td>
+            <td>
+              <a href="{{ url_for('detalle_citas_usuario', user_id=cita['id_usuario']) }}" class="btn btn-success btn-small">
+                <i class="fas fa-eye"></i> Seleccionar
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+const searchInput = document.getElementById("busqueda");
+if (searchInput) {
+  searchInput.addEventListener("keyup", function () {
+    const input = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#userTable tbody tr");
+    rows.forEach((row) => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(input) ? "" : "none";
+    });
+  });
+}
+</script>
+{% endblock %}

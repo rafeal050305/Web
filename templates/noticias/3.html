@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Éxito de la campaña "Gran donatón UNFV 2025"{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 800px;">
+    <div class="card" style="padding: 0; overflow: hidden;">
+      <img src="{{ url_for('static', filename='images/noticia3.jpg') }}" alt="Éxito de la campaña Gran donatón UNFV 2025" style="width: 100%; max-height: 340px; object-fit: cover;">
+      <div style="padding: 2.5rem 2rem;">
+        <h1 style="font-size: 2.2rem; color: var(--primary-green); margin-bottom: 0.5rem;">Éxito de la campaña "Gran donatón UNFV 2025"</h1>
+        <div style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 1.2rem;">
+          <span>12 Junio 2025</span> &nbsp;|&nbsp; <span>Dr. Mauricio Velazco</span>
+        </div>
+        <div style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark);">
+          <p>Es con gran satisfacción y orgullo institucional que comunicamos el rotundo éxito de la campaña "Gran donatón UNFV 2025". Esta jornada solidaria, que superó todas las expectativas, se ha consolidado como un poderoso testimonio de la colaboración, el compromiso social y la empatía que caracterizan a nuestra comunidad universitaria y a sus aliados estratégicos. El evento no solo logró su objetivo de incrementar las reservas de sangre, sino que también sembró un importante mensaje de vida y esperanza.</p>
+          <p>La campaña fue posible gracias a una valiosa alianza con el Hospital de Emergencias de Villa El Salvador, cuyo equipo de licenciados del área del Banco de Sangre se trasladó a nuestras instalaciones con su profesionalismo y equipamiento de primer nivel. Su experiencia y dedicación fueron fundamentales para garantizar que cada donación se realizara de manera segura, eficiente y con la calidez humana que un acto de esta naturaleza requiere. Esta colaboración interinstitucional refuerza los lazos vitales entre la academia y los servicios de salud pública, creando un impacto directo y positivo en la comunidad.</p>
+          <p>Un pilar fundamental de este logro fue, sin duda, la participación activa y entusiasta de nuestros estudiantes de 4to año. Ellos asumieron con gran responsabilidad la crucial tarea de la promoción y concientización, movilizando a sus compañeros, al personal docente y administrativo. Su creatividad para difundir el mensaje, su energía para motivar a los donantes y su clara comprensión sobre la importancia de la donación voluntaria fueron el verdadero motor que impulsó la masiva asistencia a esta noble causa.</p>
+          <p>El resultado de esta jornada se traduce en un significativo aporte a las reservas del Banco de Sangre, que permitirá salvar incontables vidas en situaciones de emergencia. Cada donante que acudió al llamado se convierte en un héroe anónimo, y cada estudiante que promovió la campaña, en un agente de cambio. Agradecemos profundamente a todos los participantes, al equipo del hospital y, en especial, a nuestros estudiantes, por demostrar una vez más que la unión y la solidaridad son las herramientas más poderosas para construir una sociedad mejor.</p>
+        </div>
+        <div style="margin-top: 2.5rem; text-align:center;">
+          <a href="{{ url_for('home') }}" class="btn btn-secondary btn-small"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 
