@@ -1,27 +1,84 @@
-{% extends 'base.html' %}
-{% block title %}Detalle del Resultado{% endblock %}
-
+{% extends 'base.html' %} {% block title %}Detalle del Resultado{% endblock %}
 {% block content %}
 <section class="section">
-  <div class="container" style="max-width: 700px;">
-    <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
-      <a href="{{ resultado['link_drive'] }}" class="btn btn-success btn-small" target="_blank">
+  <div class="container" style="max-width: 700px">
+    <div
+      style="
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      "
+    >
+      <a
+        href="{{ resultado['link_drive'] }}"
+        class="btn btn-success btn-small"
+        target="_blank"
+      >
         <i class="fas fa-file-download"></i> Descargar Resultado de laboratorio
       </a>
-      
-      <a href="{{ url_for('historial_resultados') }}" class="btn btn-secondary btn-small">
+
+      <a
+        href="{{ url_for('historial_resultados') }}"
+        class="btn btn-secondary btn-small"
+      >
         <i class="fas fa-arrow-left"></i> Volver al historial
       </a>
     </div>
     <div class="card">
-      <h2 class="text-center" style="margin-bottom: 2rem;">Detalle del Resultado</h2>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-        {% for clave, valor in resultado.items() %}
-        <div style="margin-bottom: 0.5rem;">
-          <label style="font-weight: bold; color: var(--primary-green);">{{ clave | replace('_', ' ') | capitalize }}:</label>
-          <div style="color: var(--text-gray);">{{ valor }}</div>
+      <h2 class="text-center" style="margin-bottom: 2rem">
+        Detalle del Resultado
+      </h2>
+
+      <div
+        style="
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+          text-align: center;
+        "
+      >
+        {% for clave, valor in resultado.items() %} {% if clave not in
+        ['id_resultado', 'id_usuario', 'link_drive'] %} {% if clave in ['eco',
+        'parasitalogico_simple', 'parasitalogico_seriado', 'pr_dengue',
+        'pr_helicobacter'] %}
+        <div
+          style="
+            grid-column: 1 / -1;
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: justify;
+          "
+        >
+          <label
+            style="
+              font-weight: bold;
+              color: var(--primary-green);
+              display: block;
+            "
+          >
+            {{ clave | replace('_', ' ') | capitalize }}:
+          </label>
+          <div style="white-space: pre-line; color: var(--text-gray)">
+            {{ valor }}
+          </div>
         </div>
-        {% endfor %}
+        {% else %}
+        <div>
+          <label
+            style="
+              font-weight: bold;
+              color: var(--primary-green);
+              display: block;
+            "
+          >
+            {{ clave | replace('_', ' ') | capitalize }}:
+          </label>
+          <div style="color: var(--text-gray)">{{ valor }}</div>
+        </div>
+        {% endif %} {% endif %} {% endfor %}
       </div>
     </div>
   </div>
