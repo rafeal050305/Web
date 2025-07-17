@@ -799,6 +799,6 @@ def inject_user():
     return dict(user=session.get('user_name'))
 
 if __name__ == '__main__':
-    #init_db()
-    # registrar_usuario()
+    init_db()
+    registrar_usuario()
     app.run(debug=True)
