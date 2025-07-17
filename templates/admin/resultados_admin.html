@@ -1,0 +1,22 @@
+{% extends 'admin/base_admin.html' %}
+{% block title %}Gestión de Resultados{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 700px;">
+    <h2 class="text-center">Gestión de Resultados</h2>
+    <div class="cards-grid" style="margin-top: 2.5rem;">
+      <a href="{{ url_for('tabla_usuarios_resultado') }}" class="card" style="text-align: center; cursor: pointer;">
+        <i class="fas fa-user-plus" style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+        <h3>Crear resultado para una persona</h3>
+        <p style="color: var(--text-gray);">Registra un nuevo resultado médico para un usuario.</p>
+      </a>
+      <a href="{{ url_for('tabla_edicion') }}" class="card" style="text-align: center; cursor: pointer;">
+        <i class="fas fa-search" style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 1rem;"></i>
+        <h3>Consultar historial de resultados</h3>
+        <p style="color: var(--text-gray);">Consulta y edita resultados médicos de cualquier usuario.</p>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Detalle del Resultado{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 700px;">
+    <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+      <a href="{{ resultado['link_drive'] }}" class="btn btn-success btn-small" target="_blank">
+        <i class="fas fa-file-download"></i> Descargar Resultado de laboratorio
+      </a>
+      
+      <a href="{{ url_for('historial_resultados') }}" class="btn btn-secondary btn-small">
+        <i class="fas fa-arrow-left"></i> Volver al historial
+      </a>
+    </div>
+    <div class="card">
+      <h2 class="text-center" style="margin-bottom: 2rem;">Detalle del Resultado</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        {% for clave, valor in resultado.items() %}
+        <div style="margin-bottom: 0.5rem;">
+          <label style="font-weight: bold; color: var(--primary-green);">{{ clave | replace('_', ' ') | capitalize }}:</label>
+          <div style="color: var(--text-gray);">{{ valor }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

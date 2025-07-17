@@ -1,0 +1,36 @@
+{% extends 'admin/base_admin.html' %}
+{% block title %}Historial de Resultados del Usuario{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 800px;">
+    <h2 class="text-center">Historial de Resultados del usuario: {{ usuario['apellidos'] }} {{ usuario['nombres'] }}</h2>
+    <div class="table-container" style="margin-top: 2rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for resultado in resultados %}
+          <tr>
+            <td>{{ resultado['fecha_envio'] }}</td>
+            <td>{{ resultado['hora_envio'] }}</td>
+            <td>
+              <a href="{{ url_for('editar_resultado', id_resultado=resultado['id_resultado']) }}" class="btn btn-success btn-small"><i class="fas fa-edit"></i> Editar</a>
+              <a href="{{ url_for('eliminar_resultado', id_resultado=resultado['id_resultado']) }}" class="btn btn-danger btn-small"><i class="fas fa-trash"></i> Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top: 2rem;">
+      <a href="{{ url_for('tabla_edicion') }}" class="btn btn-secondary btn-small"><i class="fas fa-arrow-left"></i> Volver</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

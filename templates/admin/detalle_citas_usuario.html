@@ -1,0 +1,38 @@
+{% extends 'admin/base_admin.html' %}
+{% block title %}Detalle de Citas del Usuario{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 900px;">
+    <h2 class="text-center">Citas del usuario: {{ nombre_completo }}</h2>
+    <div class="table-container" style="margin-top: 2rem;">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Turno</th>
+            <th>Hora</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cita in citas_usuario %}
+          <tr>
+            <td>{{ cita['fecha'] }}</td>
+            <td>{{ cita['turno'] }}</td>
+            <td>{{ cita['horario'] }}</td>
+            <td>
+              <a href="{{ url_for('editar_cita', id_cita=cita['id_cita']) }}" class="btn btn-success btn-small"><i class="fas fa-edit"></i> Editar</a>
+              <a href="{{ url_for('eliminar_cita', id_cita=cita['id_cita']) }}" class="btn btn-danger btn-small"><i class="fas fa-trash"></i> Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top: 2rem;">
+      <a href="{{ url_for('citas_general') }}" class="btn btn-secondary btn-small"><i class="fas fa-arrow-left"></i> Volver</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="{{ url_for('home') }}" class="logo">
+          <i class="fas fa-university"></i> UNFV-FTM
+        </a>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+          <li>
+            <a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+          <ul>
+            <li>
+              <a href="{{ url_for('home') }}"><i class="fas fa-home"></i> Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div class="auth-container">
+        <div class="auth-card register">
+          <div class="logo" style="margin-bottom: 1.5rem;">
+            <i class="fas fa-user-plus" style="font-size: 3rem; color: var(--primary-green);"></i>
+          </div>
+          <h1>Registro de Usuario</h1>
+          <form method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombres">Nombres</label>
+                <input type="text" id="nombres" name="nombres" required />
+              </div>
+              <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="dni">DNI</label>
+                <input type="text" id="dni" name="dni" required />
+              </div>
+              <div class="form-group">
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" name="correo" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="text" id="telefono" name="telefono" required />
+              </div>
+              <div class="form-group">
+                <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="genero">Género</label>
+                <select id="genero" name="genero" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success btn-full">Registrarse</button>
+          </form>
+          <hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border-color);">
+          <p style="margin-top: 0; text-align:center;">¿Ya tienes cuenta? <a href="{{ url_for('login') }}" class="text-link">Inicia sesión</a></p>
+        </div>
+      </div>
+    </main>
+    <footer class="footer footer-pro">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-info">
+            <h3 class="footer-title">Universidad Nacional Federico Villarreal</h3>
+            <p>Laboratorio Clínico y Anatomía Patológica</p>
+          </div>
+          <div class="footer-contact">
+            <h3 class="footer-title">Contactos</h3>
+            <div class="footer-contact-item">
+              <span class="footer-icon"><i class="fas fa-map-marker-alt"></i></span>
+              <div>
+                <p>Jr, Rio Chepen 290</p>
+                <p>El Agustino, Lima - Perú</p>
+              </div>
+            </div>
+            <div class="footer-contact-item">
+              <span class="footer-icon"><i class="fas fa-phone"></i></span>
+              <p>(01) 748-0888</p>
+            </div>
+            <div class="footer-contact-item">
+              <span class="footer-icon"><i class="fas fa-envelope"></i></span>
+              <a href="mailto:ftm@unfv.edu.pe" class="footer-link">ftm@unfv.edu.pe</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom-pro">
+          <p>
+            © {{ current_year or 2025 }} Universidad Nacional Federico Villarreal – Facultad de Tecnología Médica. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>

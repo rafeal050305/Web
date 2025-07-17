@@ -1,0 +1,81 @@
+{% extends 'admin/base_admin.html' %}
+{% block title %}Historial de Resultados del Usuario{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 1200px;">
+    <h2 class="text-center">Historial de Resultados del Usuario</h2>
+    <div class="search-bar" style="margin-bottom: 2rem;">
+      <input type="text" id="busqueda" placeholder="Buscar en la tabla..." />
+    </div>
+    <div class="table-container">
+      <table id="resultadosTable">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>DNI</th>
+            <th>Sexo</th>
+            <th>Glucosa</th>
+            <th>Colesterol</th>
+            <th>RBC</th>
+            <th>Hemoglobina</th>
+            <th>Hematocrito</th>
+            <th>WBC</th>
+            <th>Grupo Sanguíneo</th>
+            <th>Eco</th>
+            <th>Paras. Simple</th>
+            <th>Paras. Seriado</th>
+            <th>PR Dengue</th>
+            <th>PR Helicobacter</th>
+            <th>Link Drive</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for resultado in resultados %}
+          <tr>
+            <td>{{ resultado.fecha_envio }}</td>
+            <td>{{ resultado.hora_envio }}</td>
+            <td>{{ resultado.dni }}</td>
+            <td>{{ resultado.sexo }}</td>
+            <td>{{ resultado.glucosa }}</td>
+            <td>{{ resultado.colesterol }}</td>
+            <td>{{ resultado.rbc }}</td>
+            <td>{{ resultado.hemoglobina }}</td>
+            <td>{{ resultado.hematocrito }}</td>
+            <td>{{ resultado.wbd }}</td>
+            <td>{{ resultado.grupo_sanguineo }}</td>
+            <td>{{ resultado.eco }}</td>
+            <td>{{ resultado.parasitalogico_simple }}</td>
+            <td>{{ resultado.parasitalogico_seriado }}</td>
+            <td>{{ resultado.pr_dengue }}</td>
+            <td>{{ resultado.pr_helicobacter }}</td>
+            <td><a href="{{ resultado.link_drive }}" target="_blank" class="btn btn-secondary btn-small"><i class="fas fa-link"></i> Ver</a></td>
+            <td>
+              <a href="{{ url_for('actualizar_resultado', resultado_id=resultado.id_resultado) }}" class="btn btn-success btn-small"><i class="fas fa-edit"></i></a>
+              <a href="{{ url_for('eliminar_resultado', resultado_id=resultado.id_resultado) }}" class="btn btn-danger btn-small" onclick="return confirm('¿Eliminar este resultado?')"><i class="fas fa-trash"></i></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+const searchInput = document.getElementById("busqueda");
+if (searchInput) {
+  searchInput.addEventListener("keyup", function () {
+    const input = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#resultadosTable tbody tr");
+    rows.forEach((row) => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(input) ? "" : "none";
+    });
+  });
+}
+</script>
+{% endblock %}

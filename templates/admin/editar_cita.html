@@ -1,0 +1,35 @@
+{% extends 'admin/base_admin.html' %}
+{% block title %}Editar Cita{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+  <div class="auth-card register" style="max-width: 500px;">
+    <div class="logo" style="margin-bottom: 1.5rem;">
+      <i class="fas fa-edit" style="font-size: 2.5rem; color: var(--primary-green);"></i>
+    </div>
+    <h1 style="font-size: 2rem;">Editar Cita</h1>
+    <form method="POST">
+      <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input type="date" name="fecha" id="fecha" value="{{ cita['fecha'] }}" required />
+      </div>
+      <div class="form-group">
+        <label for="turno">Turno</label>
+        <select name="turno" id="turno" required>
+          <option value="Mañana" {% if cita['turno'] == 'Mañana' %}selected{% endif %}>Mañana</option>
+          <option value="Tarde" {% if cita['turno'] == 'Tarde' %}selected{% endif %}>Tarde</option>
+          <option value="Noche" {% if cita['turno'] == 'Noche' %}selected{% endif %}>Noche</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="horario">Hora</label>
+        <input type="time" name="horario" id="horario" value="{{ cita['horario'] }}" required />
+      </div>
+      <button type="submit" class="btn btn-success btn-full">Guardar Cambios</button>
+    </form>
+    <div style="margin-top: 2rem; text-align:center;">
+      <a href="{{ url_for('citas_general') }}" class="text-link"><i class="fas fa-arrow-left"></i> Volver</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

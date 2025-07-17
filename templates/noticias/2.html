@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Feria anual de emprendimientos Tecnoinnova{% endblock %}
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 800px;">
+    <div class="card" style="padding: 0; overflow: hidden;">
+      <img src="{{ url_for('static', filename='images/noticia2.jpg') }}" alt="Feria anual de emprendimientos Tecnoinnova" style="width: 100%; max-height: 340px; object-fit: cover;">
+      <div style="padding: 2.5rem 2rem;">
+        <h1 style="font-size: 2.2rem; color: var(--primary-green); margin-bottom: 0.5rem;">Feria anual de emprendimientos Tecnoinnova</h1>
+        <div style="color: var(--text-gray); font-size: 1.1rem; margin-bottom: 1.2rem;">
+          <span>17 Julio 2025</span> &nbsp;|&nbsp; <span>Dr. Mauricio Velazco</span>
+        </div>
+        <div style="font-size: 1.15rem; line-height: 1.8; color: var(--text-dark);">
+          <p><strong>¡Somos noticia!</strong> Nuestra facultad se vistió de gala para presentar la esperada feria anual de emprendimientos, "Tecnoinnova". En este importante evento, los estudiantes de las carreras de Laboratorio Clínico y Anatomía Patológica se convirtieron en los protagonistas, demostrando no solo su profundo conocimiento técnico, sino también su excepcional creatividad y su impresionante capacidad para la gestión de recursos.</p>
+          <p>Más que una simple exhibición, "Tecnoinnova" representa el puente fundamental entre la formación académica y las demandas del mundo profesional, con el objetivo de fomentar un espíritu emprendedor que dé soluciones a las necesidades del sector salud. Los proyectos de este año destacaron por su enfoque renovado y vanguardista en áreas críticas, abarcando desde propuestas en Informática de Administración con sistemas para optimizar la gestión de datos, pasando por nuevas metodologías en Hematología y Bioquímica para agilizar diagnósticos, técnicas mejoradas en Histología para el procesamiento de tejidos, y culminando con protocolos de vanguardia en Bioseguridad para garantizar un entorno de trabajo seguro.</p>
+          <p>El verdadero éxito de "Tecnoinnova" radica en el talento y la dedicación de nuestro alumnado, cuya habilidad para ejecutar proyectos con visión profesional nos llena de orgullo. Este evento es un claro reflejo del compromiso de nuestra facultad con una educación de excelencia que cultiva las habilidades del futuro. Se consolida así como un pilar de nuestro orgullo institucional y una señal de que estamos formando a la próxima generación de líderes e innovadores en el campo de la salud. ¡Felicitaciones a todos los participantes por su extraordinario trabajo!</p>
+        </div>
+        <div style="margin-top: 2.5rem; text-align:center;">
+          <a href="{{ url_for('home') }}" class="btn btn-secondary btn-small"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 

@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %}Inicio | UNFV{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <div class="container" style="text-align:center;">
+      <img src="{{ url_for('static', filename='images/portada.jpg') }}" alt="Portada Facultad" style="max-width: 100%; height: auto; border-radius: 18px; margin-bottom: 2rem; box-shadow: 0 4px 24px rgba(0,0,0,0.12);">
+      <h1>Facultad de Tecnología Médica</h1>
+      <p>Has iniciado sesión correctamente en el sistema de resultados y citas médicas de la UNFV.</p>
+      <a href="{{ url_for('citas') }}" class="btn btn-success">Agendar Cita</a>
+    </div>
+  </section>
+
+  <!-- ¿Quiénes somos? -->
+<section class="section">
+  <div class="container">
+    <div class="section-flex">
+      <div class="section-text">
+        <h2 class="section-title">¿Quiénes somos?</h2>
+        <p>
+          Villa Lab es el puente digital entre el laboratorio clínico universitario y el paciente, que entrega resultados médicos en PDF de forma rápida, segura y comprensible a través de la web, sin necesidad de regresar al centro de salud. Buscamos mejorar la experiencia de atención para estudiantes, docentes y vecinos.
+        </p>
+      </div>
+      <div class="section-img">
+        <img
+          src="{{ url_for('static', filename='images/foto-seccion-quienes-somos.jpg') }}"
+          alt="¿Quiénes somos?"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Noticias -->
+  <section class="section" style="background: var(--lightest-gray);">
+    <div class="container">
+      <h2>Noticias</h2>
+      <div class="cards-grid">
+        <div class="news-card">
+          <img src="{{ url_for('static', filename='images/noticia1.jpg') }}" alt="Noticia 1">
+          <div class="news-card-content">
+            <h3>Programa de Exámenes de Laboratorio Clínico</h3>
+            <p>Inscribirte a nuestro programa-servicio de exámenes de laboratorio clínico!</p>
+            <small>1 Agosto 2025</small>
+            <div style="margin-top: 1.2rem;"><a href="{{ url_for('noticia_detalle', noticia_id=1) }}" class="btn btn-secondary btn-small">Ver más</a></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="{{ url_for('static', filename='images/noticia2.jpg') }}" alt="Noticia 2">
+          <div class="news-card-content">
+            <h3>Feria anual de emprendimientos Tecnoinnova</h3>
+            <p>Se firma importante convenio para prácticas profesionales y desarrollo de investigación...</p>
+            <small>17 Julio 2025</small>
+            <div style="margin-top: 1.2rem;"><a href="{{ url_for('noticia_detalle', noticia_id=2) }}" class="btn btn-secondary btn-small">Ver más</a></div>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="{{ url_for('static', filename='images/noticia3.jpg') }}" alt="Noticia 3">
+          <div class="news-card-content">
+            <h3>Éxito de la campaña "Gran donatón UNFV 2025" clínico!</h3>
+            <p>Promueve la asistencia de donantes con entusiasmo y concientización.</p>
+            <small>12 Junio 2025</small>
+            <div style="margin-top: 1.2rem;"><a href="{{ url_for('noticia_detalle', noticia_id=3) }}" class="btn btn-secondary btn-small">Ver más</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+<!-- Sobre nuestra Facultad -->
+<section class="section">
+  <div class="container">
+    <div class="section-flex section-facultad-responsive">
+      <div class="section-img">
+        <img
+          src="{{ url_for('static', filename='images/foto-seccion-sobre-facultad.jpg') }}"
+          alt="Sobre nuestra Facultad"
+          style="width: 100%; border-radius: 12px;"
+        >
+      </div>
+      <div class="section-text">
+        <h2 class="section-title">Sobre nuestra Facultad</h2>
+        <p>La Facultad de Tecnología Médica de la Universidad Nacional Federico Villareal es una institución de educación superior comprometida con la formación de profesionales altamente capacitados en las diversas áreas de la tecnología médica.</p>
+        <p>Con más de 30 años de experiencia, nuestra facultad ha formado a miles de tecnólogos médicos que contribuyen al desarrollo del sistema de salud peruano. Contamos con modernos laboratorios, equipos de última generación y un cuerpo docente altamente calificado.</p>
+        <p>Nuestro compromiso es brindar una educación de calidad que combine la teoría con la práctica, preparando a nuestros estudiantes para enfrentar los desafíos del mundo profesional actual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Cómo llegar -->
+  <section class="video-section">
+    <div class="container">
+      <div class="video-container" style="display: flex; flex-direction: row; align-items: stretch; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+        <div class="video-wrapper" style="width: 320px; height: 570px; min-width: 320px;">
+          <iframe src="https://www.youtube.com/embed/QznW9yz_Uag" title="Cómo llegar Facultad Tecnológica Médica" allowfullscreen></iframe>
+        </div>
+        <div class="video-content" style="display: flex; flex-direction: column; justify-content: center; min-width: 280px; font-size: 1.25rem; line-height: 1.7;">
+          <h3 style="font-size: 2.3rem; margin-bottom: 1.2rem;">¿Cómo llegar a la Facultad Tecnológica Medica?</h3>
+          <p style="margin-bottom: 1rem;"><strong>Dirección:</strong> Urb. Villa Hermosa. Jr. Rio Chepen 290, El Agustino</p>
+          <p style="margin-bottom: 1rem;"><strong>Transporte público:</strong> Transporte desde el centro de Lima: Ruta E (Color azul, blanco, rojo y amarillo)</p>
+          <p style="margin-bottom: 1rem;"><strong>Referencias:</strong><br>
+            Puente peatonal “Morro” (“Atarjea”)<br>
+            A la derecha del hospital Hipólito Unanue
+          </p>
+          <p style="margin-bottom: 1rem;"><strong>Ubicación Exacta:</strong> Pabellón A, Facultad Tecnológica Médica</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <!-- Misión y Visión -->
+<section class="section">
+  <div class="container">
+    <div class="section-flex" style="gap: 2rem; flex-wrap: wrap; justify-content: center;">
+      <div class="section-text" style="background: #e6f9ec; border-radius: 18px; box-shadow: 0 4px 18px rgba(0,128,0,0.07); padding: 2rem 1.5rem; min-width: 270px; max-width: 420px; flex: 1 1 320px; margin-bottom: 1rem;">
+        <h2 class="section-title" style="display: flex; align-items: center; font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-bullseye" style="margin-right: 0.7rem; color: var(--primary-green);"></i> Misión</h2>
+        <p style="font-size: 1.5rem; line-height: 1.6; margin: 0;">
+          Nuestra misión es brindar servicios de laboratorio clínico y anatomía patológica de alta calidad, contribuyendo al bienestar y salud de la comunidad universitaria y la sociedad en general.
+        </p>
+      </div>
+      <div class="section-text" style="background: #e6f9ec; border-radius: 18px; box-shadow: 0 4px 18px rgba(0,128,0,0.07); padding: 2rem 1.5rem; min-width: 270px; max-width: 420px; flex: 1 1 320px; margin-bottom: 1rem;">
+        <h2 class="section-title" style="display: flex; align-items: center; font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-eye" style="margin-right: 0.7rem; color: var(--primary-green);"></i> Visión</h2>
+        <p style="font-size: 1.5rem; line-height: 1.6; margin: 0;">
+          Ser reconocidos como un laboratorio líder en innovación, excelencia y compromiso social, apoyando la formación académica y la investigación científica en el área de la salud.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

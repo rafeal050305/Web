@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Historial de Citas{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container" style="max-width: 800px;">
+    <h2 class="text-center">Historial de Citas</h2>
+    {% if citas %}
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Turno</th>
+            <th>Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cita in citas %}
+          <tr>
+            <td>{{ cita['fecha'] }}</td>
+            <td>{{ cita['turno'] }}</td>
+            <td>{{ cita['horario'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="card text-center" style="margin-top:2rem;">
+      <p>No tienes citas registradas.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
